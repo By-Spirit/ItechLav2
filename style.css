@@ -6,28 +6,31 @@ body {
     display: inline-block; /* Выстраиваем по горизонтали */
 }
 
-.tab input[type="radio"] { display: none; }
+input[type="radio"] { display: none; }/* Не показываем радио кнопку */
 
-.tab-title {
-    background: rgb(255, 255, 255); /* Цвет фона */
-
+.tab-title {/* Цвет фона названия вкладки (Если не выбрана) */
+    background: rgb(255, 255, 255); 
 }
 
-.tab-content {
+.tab-text {/*Текст, если не выбран*/
     position: absolute; /* Абсолютное позиционирование */
-    
-    padding: 10px; /* Поля вокруг текста */
-    left: 0; /* Размещаем у левого края */
-    display: none; /* Прячем вкладку */
+    left: 0; /* Размещаение у левого края */
+    padding: 10px; /* Размер поля вокруг текста */
+    display: none; /* Не показываем текст */
 }
 
-.tab :checked + .tab-title {
+
+/*Изменение выбранной вкладки*/
+.tab :checked ~ .tab-title {
     background: rgb(0, 0, 0); /* Цвет фона */
     color: rgb(255, 255, 255);
-    top: 1px; /* Сдвигаем вниз */
-    z-index: 1; /* Отображаем поверх содержимого */
 }
 
-.tab :checked ~ .tab-content {
+span > div{
+    padding-top: 30px;
+    width: 200px;
+}
+
+.tab :checked ~ .tab-text {
     display: block; /* Показываем активную вкладку */
 }
